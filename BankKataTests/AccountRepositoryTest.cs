@@ -51,14 +51,14 @@ namespace BankKataTests
         [Test]
         public void GetAllTransactions_SeveralTransactionsAddedOutOfOrder_AllTransactionsReturnedInDescendingDateOrder()
         {
-            _accountRepository.Withdraw(50);
-            _accountRepository.Deposit(100);
-            _accountRepository.Deposit(1000);
-
            _clock.SetupSequence(x => x.Now())
                .Returns("10/04/2014")
                .Returns("12/04/2014")
                .Returns("11/04/2014");
+
+           _accountRepository.Withdraw(50);
+           _accountRepository.Deposit(100);
+           _accountRepository.Deposit(1000);
 
             var expectedTransactions = new List<Transaction>()
             {
