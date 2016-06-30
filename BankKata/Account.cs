@@ -4,28 +4,28 @@ namespace BankKata
 {
     public class Account
     {
-        private readonly IAccountTracker _accountTracker;
+        private readonly IAccountRepository _accountRepository;
         private readonly IStatementPrinter _statementPrinter;
 
-        public Account(IAccountTracker accountTracker, IStatementPrinter statementPrinter)
+        public Account(IAccountRepository accountRepository, IStatementPrinter statementPrinter)
         {
-            _accountTracker = accountTracker;
+            _accountRepository = accountRepository;
             _statementPrinter = statementPrinter;
         }
 
         public void Deposit(int amount)
         {
-            _accountTracker.Deposit(amount);
+            _accountRepository.Deposit(amount);
         }
 
         public void Withdraw(int amount)
         {
-            _accountTracker.Withdraw(amount);
+            _accountRepository.Withdraw(amount);
         }
 
         public void PrintStatement()
         {
-            _statementPrinter.Print(_accountTracker.GetAllTransactions());
+            _statementPrinter.Print(_accountRepository.GetAllTransactions());
         }
     }
 }

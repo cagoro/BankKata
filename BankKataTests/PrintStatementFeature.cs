@@ -24,7 +24,7 @@ namespace BankKataTests
 
             Mock<IClock> clock = new Mock<IClock>();
 
-            account = new Account(new AccountTracker(clock.Object), new StatementPrinter());
+            account = new Account(new AccountRepository(clock.Object), new StatementPrinter());
         }
 
         [Test]

@@ -40,8 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
-    <Compile Include="AccountTracker.cs" />
-    <Compile Include="IAccountTracker.cs" />
+    <Compile Include="AccountRepository.cs" />
+    <Compile Include="IAccountRepository.cs" />
     <Compile Include="IClock.cs" />
     <Compile Include="IStatementPrinter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

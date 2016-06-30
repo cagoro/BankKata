@@ -9,13 +9,13 @@ namespace BankKataTests
     public class AccountTests
     {
         private Account _account;
-        private Mock<IAccountTracker> _accountTracker;
+        private Mock<IAccountRepository> _accountTracker;
         private Mock<IStatementPrinter> _statementPrinter;
 
         [SetUp]
         public void SetUp()
         {
-            _accountTracker = new Mock<IAccountTracker>();
+            _accountTracker = new Mock<IAccountRepository>();
             _statementPrinter = new Mock<IStatementPrinter>();
             _account = new Account(_accountTracker.Object, _statementPrinter.Object);
         }
@@ -32,6 +32,7 @@ namespace BankKataTests
         {
             _account.Withdraw(100);
             _accountTracker.Verify(x => x.Withdraw(100));
+
         }
 
         [Test]
