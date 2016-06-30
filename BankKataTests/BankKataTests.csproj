@@ -52,7 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountTests.cs" />
-    <Compile Include="AccountRepositoryTest.cs" />
+    <Compile Include="AccountRepositoryTests.cs" />
+    <Compile Include="StatementPrinterTests.cs" />
     <Compile Include="PrintStatementFeature.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

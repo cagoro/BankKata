@@ -1,15 +1,9 @@
-﻿using System;
-using BankKata;
+﻿using BankKata;
 using Moq;
 using NUnit.Framework;
 
 namespace BankKataTests
 {
-    public interface IConsole
-    {
-        void PrintLine(string dateAmountBalance);
-    }
-
     [TestFixture]
     public class PrintStatementFeature
     {
@@ -22,9 +16,9 @@ namespace BankKataTests
         {
             console = new Mock<IConsole>();
 
-            Mock<IClock> clock = new Mock<IClock>();
+            var clock = new Mock<IClock>();
 
-            account = new Account(new AccountRepository(clock.Object), new StatementPrinter());
+            account = new Account(new AccountRepository(clock.Object), new StatementPrinter(console.Object));
         }
 
         [Test]

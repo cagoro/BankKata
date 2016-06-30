@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace BankKataTests
 {
     [TestFixture]
-    public class AccountRepositoryTest
+    public class AccountRepositoryTests
     {
         private Mock<IClock> _clock;
         private AccountRepository _accountRepository;
