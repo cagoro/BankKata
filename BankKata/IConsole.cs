@@ -2,6 +2,6 @@ namespace BankKata
 {
     public interface IConsole
     {
-        void PrintLine(string dateAmountBalance);
+        void PrintLine(string line);
     }
 }

@@ -49,7 +49,7 @@ namespace BankKataTests
         }
 
         [Test]
-        public void GetAllTransactions_SeveralTransactionsAddedOutOfOrder_AllTransactionsReturnedInDescendingDateOrder()
+        public void GetAllTransactions_SeveralTransactionsAdded_AllTransactionsReturned()
         {
            _clock.SetupSequence(x => x.Now())
                .Returns("10/04/2014")
@@ -67,7 +67,9 @@ namespace BankKataTests
                 new Transaction(-50, "10/04/2014")
             };
 
-            Assert.AreEqual(expectedTransactions, _accountRepository.GetAllTransactions());
+            var allTransactions = _accountRepository.GetAllTransactions();
+            Assert.AreEqual(expectedTransactions.Count, allTransactions.Count);
+            Assert.AreEqual(3,allTransactions.Intersect(expectedTransactions).Count());
         }
     }
 }

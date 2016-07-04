@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace BankKata
 {
@@ -27,7 +26,6 @@ namespace BankKata
 
         public List<Transaction> GetAllTransactions()
         {
-            _transactions.Sort((x, y) => -DateTime.Parse(x.Date).CompareTo(DateTime.Parse(y.Date)));
             return _transactions;
         }
     }
